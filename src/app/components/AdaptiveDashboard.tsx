@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { C1Chat } from '@thesysdev/genui-sdk';
+const C1Chat = require('@thesysdev/genui-sdk').C1Chat;
 import './dashboard.css';
 
 interface LayoutState {
@@ -34,6 +34,10 @@ const AdaptiveDashboard: React.FC = () => {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+
+  if (!C1Chat) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className="adaptive-container">
