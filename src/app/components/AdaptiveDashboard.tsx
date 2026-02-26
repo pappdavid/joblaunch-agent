@@ -7,7 +7,7 @@ const AdaptiveDashboard: React.FC<{children: React.ReactNode}> = ({children}) =>
   const [layout, setLayout] = useState({
     isMobile: false,
     isTablet: false,
-    dashboardPosition: 'left' as const,
+    dashboardPosition: 'left',
   });
 
   useEffect(() => {
