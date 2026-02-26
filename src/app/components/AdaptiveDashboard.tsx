@@ -3,37 +3,14 @@
 import React, { useState, useEffect } from 'react';
 import './dashboard.css';
 
-interface LayoutState {
-  isMobile: boolean;
-  isTablet: boolean;
-  dashboardPosition: 'top' | 'left' | 'right' | 'hidden';
-}
-
-let C1Chat: any = null;
-
-const AdaptiveDashboard: React.FC = () => {
-  const [layout, setLayout] = useState<LayoutState>({
+const AdaptiveDashboard: React.FC<{children: React.ReactNode}> = ({children}) => {
+  const [layout, setLayout] = useState({
     isMobile: false,
     isTablet: false,
-    dashboardPosition: 'left',
+    dashboardPosition: 'left' as const,
   });
 
-  const [isLoaded, setIsLoaded] = useState(false);
-
   useEffect(() => {
-    // Load C1Chat dynamically on client side
-    if (typeof window !== 'undefined' && !C1Chat) {
-      try {
-        const mod = require('@thesysdev/genui-sdk');
-        C1Chat = mod.C1Chat || mod.default || mod;
-        setIsLoaded(true);
-      } catch (err) {
-        console.error('Failed to load C1Chat:', err);
-      }
-    } else {
-      setIsLoaded(true);
-    }
-
     const handleResize = () => {
       const width = window.innerWidth;
       const isMobile = width < 768;
@@ -76,14 +53,7 @@ const AdaptiveDashboard: React.FC = () => {
       )}
 
       <div className={`chatbox-wrapper wrapper-${layout.dashboardPosition}`}>
-        {isLoaded && C1Chat ? (
-          <C1Chat
-            apiUrl="/api/chat"
-            theme={{ mode: 'dark' }}
-          />
-        ) : (
-          <div style={{ padding: '20px', color: '#fff' }}>Loading chat...</div>
-        )}
+        {children}
       </div>
     </div>
   );
