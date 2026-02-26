@@ -1,0 +1,174 @@
+.adaptive-container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  background: #0f172a;
+  overflow: hidden;
+}
+
+.fixed-dashboard {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  border-right: 1px solid #334155;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.dashboard-left {
+  width: 280px;
+  min-width: 280px;
+}
+
+.dashboard-right {
+  width: 280px;
+  min-width: 280px;
+  border-left: 1px solid #334155;
+  border-right: 0;
+}
+
+.dashboard-top {
+  width: 100%;
+  height: 120px;
+  border-bottom: 1px solid #334155;
+  display: flex;
+  align-items: center;
+  padding-right: 20px;
+}
+
+.dashboard-content h2 {
+  color: #f1f5f9;
+  margin: 0 0 20px 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.dashboard-stats {
+  display: flex;
+  gap: 12px;
+  flex-direction: column;
+}
+
+.dashboard-top .dashboard-stats {
+  flex-direction: row;
+  gap: 20px;
+}
+
+.stat-item {
+  background: rgba(30, 41, 59, 0.6);
+  border: 1px solid #475569;
+  border-radius: 8px;
+  padding: 12px;
+  min-width: 100px;
+}
+
+.dashboard-top .stat-item {
+  flex: 1;
+  min-width: auto;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: #94a3b8;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.stat-value {
+  font-size: 24px;
+  font-weight: 700;
+  color: #06b6d4;
+}
+
+.chatbox-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.wrapper-left {
+  padding: 20px;
+}
+
+.wrapper-right {
+  padding: 20px;
+}
+
+.wrapper-top {
+  padding: 20px;
+  padding-top: 140px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .adaptive-container {
+    flex-direction: column;
+  }
+
+  .fixed-dashboard {
+    border-right: 0;
+    border-bottom: 1px solid #334155;
+  }
+
+  .dashboard-left,
+  .dashboard-right {
+    width: 100%;
+    min-width: auto;
+    border: 0;
+  }
+
+  .dashboard-top {
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    border-bottom: 1px solid #334155;
+  }
+
+  .dashboard-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .dashboard-content h2 {
+    margin: 0;
+    font-size: 16px;
+  }
+
+  .dashboard-stats {
+    flex-direction: row;
+    gap: 12px;
+  }
+
+  .stat-item {
+    flex: 1;
+    min-width: auto;
+  }
+
+  .wrapper-top {
+    padding-top: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .adaptive-container {
+    height: 100%;
+    min-height: 100vh;
+  }
+
+  .stat-item {
+    padding: 8px;
+  }
+
+  .stat-label {
+    font-size: 11px;
+  }
+
+  .stat-value {
+    font-size: 18px;
+  }
+
+  .dashboard-content h2 {
+    font-size: 14px;
+  }
+}
