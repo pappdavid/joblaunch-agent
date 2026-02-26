@@ -1,6 +1,6 @@
 'use client';
 
-import { C1Chat } from '@thesysdev/genui-sdk';
+import { C1Chat } from '@thesysai/genui-sdk';
 import AdaptiveDashboard from './components/AdaptiveDashboard';
 
 export default function Home() {
